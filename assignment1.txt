@@ -1,0 +1,89 @@
+Scenarios: 
+
+1. Hiking
+ 1.1. Rent a ReachNow to drive to mountain rainier on weekends with friends
+ 1.2. On the way, fill the gas
+ 1.3. On the way, eat at restaurant for lunch
+ 1.4. Buy the ticket to get into the park
+ 1.5. Book a hotel or check in the hotel.
+ 
+Things:
+ 
+Traveler:
+	Data: name, hungry, cash
+	Behaviors: fillGas, eat, drive
+
+CarRental:
+	Data: name, modelAndRemains, modelAndPrice
+	Behaviors: charge, refund
+
+Car:
+	Data: model, gasRemain, 
+	Behaviors: move, getRefilled
+	
+GasStation:
+	Data: prices,
+	Behaviors: charge
+
+Restaurant:
+	Data: food, 
+	Behaviors: charge
+
+Park: 
+	Data: ticketPrice, distance
+	Behaviors: charge
+	
+Hotel:
+	Data: rooms
+	Behaviors: reserve, charge
+	
+Traveler Kian, David, Anne-Marie;
+CarRental ReachNow;
+if ReachNow.modelAndRemains.get("subaru") > 0
+	Car subaru;
+GasStation someGas
+Restaurant FishNChips
+Park mtRainierNP
+Hotel yhaHostel
+	
+cost = ReachNow.modelAndPrice.get("subaru") * 2;
+ReachNow.charge(cost, Kian.cash);
+if yhaHostel.rooms > 0
+	days = 1
+	yhaHostel.reserve("Kian", days);
+	yhaHostel.charge(Kian.cash, days);
+mtRainierNP.charge(Kian.cash, mtRainierNP.ticketPrice * 3);
+
+while ( mtRainierNP.distance > 0) 
+	mtRainierNP.distance -= Kian.drive(subaru);
+	subaru.gasRemain -= subaru.move()
+	if( Kian.hungry == true || David.hungry == true || Anne-Marie.hungry == true)
+		Kian.eat("fish");
+		David.eat(fries");
+		Anne-Marie.eat("fish");
+		Kian.hungry = false;
+		David.hungry = false;
+		Anne-Marie.hungry = false;
+		cost = FishNChips.food["fish"] * 2 + FishNChips.food["fries"];
+		FishNChips.charge(Kian.cash, cost);
+	if(gasRemain < 10)
+		subaru.getRefilled(40);
+		someGas.charge(Kian.cash, prices * 40);
+	
+
+	
+
+
+		
+
+
+
+ 
+
+2. Organise a career fair(Suppose you are the organiser)
+
+3. Order Pizza from Pizza Hut
+
+4. Design a code sharing platform (eg: Github).
+
+5. Design a soft-drink/snacks vending machine.
