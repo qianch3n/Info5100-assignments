@@ -199,7 +199,7 @@ Pseudo code:
  4.3 Star repos
  4.4 Follow others
  
-CodeSharingPlateform:
+CodeSharingPlatform:
 	Data: users, activeUser, isLogedIn = false, 
 	Behaviors: 
 		main = () {
@@ -236,7 +236,6 @@ CodeSharingPlateform:
 		showOverview = (user) {
 			print user.repos user.starredRepos user.followList
 		}
-			
 			
 Authorization: 
 	Data: userInfo
@@ -293,13 +292,44 @@ Repository:
 		
 		
 
-
-		
-	
-	
-		
-		
-
-
-
 5. Design a soft-drink/snacks vending machine.
+ 5.1 display inventory and price
+ 5.2 get what is chosen by customer
+ 5.3 receiveMoney and return changes
+ 5.4 update inventory
+ 
+VendingMachine:
+	Data: money, inventory,
+	Behaviors:
+		main = () {
+			display inventory and price
+			if customer choose any goods
+				if inventory.goods.number > 0
+					print "Please insert $" + inventory.goods.price
+					if receiveMoney() == true
+						give the goods to customer
+						inventory.goods.number --
+						reset machine
+					else reset machine
+				else 
+					print "Sorry, sold out."
+					reset machine
+			
+		}
+		
+		receiveMoney = (cash) {
+			change = cash - price
+			if change < money
+				money = money - cash
+				give change to customer
+				return true
+			else 
+				print "Sorry, not enough change"
+				give back the cash to customer
+				return false
+		}
+	
+	
+	
+	
+
