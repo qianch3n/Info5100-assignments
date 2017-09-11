@@ -150,16 +150,156 @@ Pseudo codes:
 						company.recruitedList.add(student.name)
 						student.offers.add(company.name)
 		
-		if time > 18.00pm 
+		if time is later than 18.00pm 
 			break;
 			
 	sep17CareerFair.close()
 		
 		
  
-
 3. Order Pizza from Pizza Hut
+ 3.1 call Pizza Hut to order pizza
+ 3.2 check the menu and pick pizzas
+ 3.3 pay and end the call
+ 
+Things:
+	Person:
+		Data: name, hungry, desiredFood
+		Behaviors: pay, call, endCall
+		
+	Restaurant:
+		Data: name, menu
+		Behaviors: confirmOrder, deliverOrder
+		
+Pseudo code:
+	
+	Person Kian
+	Restaurant pizzaHut
+	
+	if Kian.hungry == true
+		Kian.call(pizzaHut)
+		for loop ( food in desiredFood )
+			if pizzaHut.menu.has(food)
+				price = pizzaHut.menu[food]
+				payment = Kian.pay(price)
+				if payment == "success"
+					pizzaHut.confirmOrder()
+					Kian.endCall()
+					pizzaHut.deliverOrder()
+					break
+				else
+					throwExeption "No enough money to pay for " + food
+		
+		
+
 
 4. Design a code sharing platform (eg: Github).
+ 4.1 Authorize user information
+ 4.2 Create new repositories 
+ 4.3 Star repos
+ 4.4 Follow others
+ 
+CodeSharingPlateform:
+	Data: users, activeUser, isLogedIn = false, 
+	Behaviors: 
+		main = () {
+			Loop check user has loged in or not
+				if isLogedIn == true
+					break
+				logIn() or signUp()
+			
+			showOverview(activeUser)
+			if create new repo
+				activeUser.newRepo
+			if star repo
+				activeUser.starRepo
+			if follow other users
+				activeUser.follow
+		}
+		
+		logIn = () {
+			retrieve username and password from user input
+			Authorization auth;
+			isLogedIn = auth.authorize(username, password)
+			activeUser = users.get(username)
+		}
+		
+		signUp = () {
+			retrieve username and password from user input
+			User newUser
+			newUser.add(username, password)
+			users.add(username, newUser)
+			Authorization auth
+			auth.signUp(username, password)			
+		}
+		
+		showOverview = (user) {
+			print user.repos user.starredRepos user.followList
+		}
+			
+			
+Authorization: 
+	Data: userInfo
+	Behaviors:
+		authorize = (username, password) {
+			if users has username:
+				check password:
+					if password is correct:
+						return true
+					else 
+						print("wrong password.")
+						return false
+			else 
+				print("user doesn't exist.")
+				return false
+		}
+		
+		signUp =(username, password) {
+			if users don't have username:
+				add username and password into users
+			else print("Username existed.")
+		}
+User:
+	Data: name, password, repos, starredRepos, followList
+	Behaviors:
+		addName = (n, p) {
+			name = n,
+			password = p
+		}
+		
+		newRepo = (name) {
+			Repository repo 
+			repos.add(name, repo)
+		}
+		
+		starRepo = (name) {
+			starredRepos.add(name)
+		}
+		
+		follow = (name) {
+			followList.add(name)
+		}
+		
+Repository:
+	Data: name, code, readMe, stars
+	Behaviors:
+		introduce = () {
+			print readMe
+		}
+	
+		getStarred = () {
+			stars ++
+		}
+		
+		
+
+
+		
+	
+	
+		
+		
+
+
 
 5. Design a soft-drink/snacks vending machine.
