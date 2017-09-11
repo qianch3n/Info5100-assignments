@@ -9,78 +9,154 @@ Scenarios:
  
 Things:
  
-Traveler:
-	Data: name, hungry, cash
-	Behaviors: fillGas, eat, drive
+	Traveler:
+		Data: name, hungry, cash
+		Behaviors: fillGas, eat, drive
 
-CarRental:
-	Data: name, modelAndRemains, modelAndPrice
-	Behaviors: charge, refund
+	CarRental:
+		Data: name, modelAndRemains, modelAndPrice
+		Behaviors: charge, refund
 
-Car:
-	Data: model, gasRemain, 
-	Behaviors: move, getRefilled
-	
-GasStation:
-	Data: prices,
-	Behaviors: charge
-
-Restaurant:
-	Data: food, 
-	Behaviors: charge
-
-Park: 
-	Data: ticketPrice, distance
-	Behaviors: charge
-	
-Hotel:
-	Data: rooms
-	Behaviors: reserve, charge
-	
-Traveler Kian, David, Anne-Marie;
-CarRental ReachNow;
-if ReachNow.modelAndRemains.get("subaru") > 0
-	Car subaru;
-GasStation someGas
-Restaurant FishNChips
-Park mtRainierNP
-Hotel yhaHostel
-	
-cost = ReachNow.modelAndPrice.get("subaru") * 2;
-ReachNow.charge(cost, Kian.cash);
-if yhaHostel.rooms > 0
-	days = 1
-	yhaHostel.reserve("Kian", days);
-	yhaHostel.charge(Kian.cash, days);
-mtRainierNP.charge(Kian.cash, mtRainierNP.ticketPrice * 3);
-
-while ( mtRainierNP.distance > 0) 
-	mtRainierNP.distance -= Kian.drive(subaru);
-	subaru.gasRemain -= subaru.move()
-	if( Kian.hungry == true || David.hungry == true || Anne-Marie.hungry == true)
-		Kian.eat("fish");
-		David.eat(fries");
-		Anne-Marie.eat("fish");
-		Kian.hungry = false;
-		David.hungry = false;
-		Anne-Marie.hungry = false;
-		cost = FishNChips.food["fish"] * 2 + FishNChips.food["fries"];
-		FishNChips.charge(Kian.cash, cost);
-	if(gasRemain < 10)
-		subaru.getRefilled(40);
-		someGas.charge(Kian.cash, prices * 40);
-	
-
-	
-
-
+	Car:
+		Data: model, gasRemain, 
+		Behaviors: move, getRefilled
 		
+	GasStation:
+		Data: prices,
+		Behaviors: charge
+
+	Restaurant:
+		Data: food, 
+		Behaviors: charge
+
+	Park: 
+		Data: ticketPrice, distance
+		Behaviors: charge
+		
+	Hotel:
+		Data: rooms
+		Behaviors: reserve, charge
+		
+Hiking pseudo code:
+	
+	Traveler Kian, David, Anne-Marie;
+	CarRental ReachNow;
+	if ReachNow.modelAndRemains.get("subaru") > 0
+		Car subaru;
+	GasStation someGas
+	Restaurant FishNChips
+	Park mtRainierNP
+	Hotel yhaHostel
+		
+	cost = ReachNow.modelAndPrice.get("subaru") * 2;
+	ReachNow.charge(cost, Kian.cash);
+	if yhaHostel.rooms > 0
+		days = 1
+		yhaHostel.reserve("Kian", days);
+		yhaHostel.charge(Kian.cash, days);
+	mtRainierNP.charge(Kian.cash, mtRainierNP.ticketPrice * 3);
+
+	while ( mtRainierNP.distance > 0) 
+		mtRainierNP.distance -= Kian.drive(subaru);
+		subaru.gasRemain -= subaru.move()
+		if( Kian.hungry == true || David.hungry == true || Anne-Marie.hungry == true)
+			Kian.eat("fish");
+			David.eat(fries");
+			Anne-Marie.eat("fish");
+			Kian.hungry = false;
+			David.hungry = false;
+			Anne-Marie.hungry = false;
+			cost = FishNChips.food["fish"] * 2 + FishNChips.food["fries"];
+			FishNChips.charge(Kian.cash, cost);
+		if(gasRemain < 10)
+			subaru.getRefilled(40);
+			someGas.charge(Kian.cash, prices * 40);
 
 
-
+2. Organise a career fair(Suppose you are the organiser):
+ 2.1 Send invitations to companys; send notifications to students;
+ 2.2 Make statistics on the total number of companies and students;
+ 2.3 Rent a site for host the fair; make sure the room is big enough;
+ 2.4 On the career fair day, keep the students inside the room less than the capacity;
+ 2.5 Finish the fair after all students leave. 
  
-
-2. Organise a career fair(Suppose you are the organiser)
+Things:
+	CareerFair
+		Data: name, isOpen, isClosed
+		Behaviors: open, close
+		
+	Organiser
+		Data: name, 
+		Behaviors: invite, notify, rentRoom, 
+	
+	Room:
+		Data: capacity, boothNumber
+		Behaviors:
+		
+	Company:
+		Data: name, headCounts, recruitedList
+		Behaviors: interview
+		
+	Student:
+		Data: name, grade, keenToFindJobs, targetCompanys, offers, skills
+		Behaviors: 
+	
+		
+Pseudo codes:
+	
+	Organiser Kian;
+	Room room1, room2, room3;
+	Company google, facebook, nordstrom, zillow, linkedin, ...
+	Student stu1, stu2, stu3, ...
+	CareerFair sep17CareerFair
+	
+	companies = [ google, facebook, nordstrom, ... ]
+	students = [ stu1, stu2, stu3, ...]
+	rooms = [room1, room2, room3]
+	int companyWillCome = [], studentWillCome = []
+	String selectedRoom
+	
+	for loop ( company in companies )
+		if company.headCounts > 0
+			companyWillCome.add(company)
+	
+	for loop ( student in students ) 
+		if student.keenToFindJobs == true
+			studentWillCome.add(student)
+	
+	for loop( room in rooms) 
+		if room.boothNumber >= companyWillCome.size()
+			selectedRoom = room
+		else
+			throwExeption "Oops, we need bigger place!"
+	
+	// On the career fair day
+	sep17CareerFair.open()
+	while loop ( studentWillCome.size() > 0 )
+		studentWalkIn = [];
+		int index = 0;
+		if( studentWillCome.size() > room.capacity )
+			studentWalkIn = studentWillCome.subArray(index, index+500)
+			studentWillCome = studentWillCome.subArray(index + 500, student.size)
+		else 
+			studentWalkIn = studentWillCome;
+			studentWillCome = []
+		
+		for loop ( company in companyWillCome) 
+			for loop( student in studentWalkIn)
+				if student.targetCompanys.has(company.name)
+					result = company.interview(student.skills)
+					if result = "passed"
+						company.recruitedList.add(student.name)
+						student.offers.add(company.name)
+		
+		if time > 18.00pm 
+			break;
+			
+	sep17CareerFair.close()
+		
+		
+ 
 
 3. Order Pizza from Pizza Hut
 
