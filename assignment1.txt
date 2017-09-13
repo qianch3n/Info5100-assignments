@@ -188,7 +188,7 @@ Pseudo code:
 					pizzaHut.deliverOrder()
 					break
 				else
-					throwExeption "Not enough money to pay for " + food
+					throwException "Not enough money to pay for " + food
 		
 		
 
