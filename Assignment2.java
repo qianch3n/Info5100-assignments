@@ -127,6 +127,25 @@ public class Assignment2 {
 
     }
 
+    // Q6:
+    public static void printIsoscelesTriangle( int n){
+        for(int i = 0; i < n - 1; i++) {
+            if(i == 0) System.out.println("*");
+            else {
+                System.out.print("*");
+                for(int j = 0; j < i - 1; j++) {
+                    System.out.print(" ");
+                }
+                System.out.println("*");
+            }
+        }
+        for(int i = 0; i < n; i ++) {
+            System.out.print("*");
+        }
+        System.out.println(" ");
+
+    }
+
     public static void main(String[] args) {
         // Pizza test = new Pizza("Supreme", 8.0, 8);
         // test.showMenu();
@@ -142,6 +161,7 @@ public class Assignment2 {
         cus1.orderPizza("meat lover", 1);
         cus1.checkOut();
 
+        printIsoscelesTriangle(10);
     }
 }
 
