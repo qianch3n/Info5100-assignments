@@ -1,3 +1,11 @@
+/*
+good work 
+score = 9.5
+remember that all actions/feelings are behaviours and only the attributes that have value are data.
+
+*/
+
+
 Scenarios: 
 
 1. Hiking
@@ -10,7 +18,7 @@ Scenarios:
 Things:
  
 	Traveler:
-		Data: name, hungry, cash
+		Data: name, hungry, cash                        // hungry is not data, it can be behaviour
 		Behaviors: fillGas, eat, drive
 
 	CarRental:
@@ -82,7 +90,7 @@ Hiking pseudo code:
  
 Things:
 	CareerFair
-		Data: name, isOpen, isClosed
+		Data: name, isOpen, isClosed                     // isOpen and isClosed are behaviours not data.
 		Behaviors: open, close
 		
 	Organiser
@@ -98,8 +106,8 @@ Things:
 		Behaviors: interview
 		
 	Student:
-		Data: name, grade, keenToFindJobs, targetCompanys, offers, skills
-		Behaviors: 
+		Data: name, grade, keenToFindJobs, targetCompanys, offers, skills 
+		Behaviors:  // student can have many behaviours like givingInterviews, etc.
 	
 		
 Pseudo codes:
@@ -164,7 +172,7 @@ Pseudo codes:
  
 Things:
 	Person:
-		Data: name, hungry, desiredFood
+		Data: name, hungry, desiredFood                         // hungry is a behaviour.
 		Behaviors: pay, call, endCall
 		
 	Restaurant:
@@ -193,7 +201,7 @@ Pseudo code:
 		
 
 
-4. Design a code sharing platform (eg: Github).
+4. Design a code sharing platform (eg: Github).   // good work
  4.1 Authorize user information
  4.2 Create new repositories 
  4.3 Star repos
@@ -292,7 +300,7 @@ Repository:
 		
 		
 
-5. Design a soft-drink/snacks vending machine.
+5. Design a soft-drink/snacks vending machine. // good work
  5.1 display inventory and price
  5.2 get what is chosen by customer
  5.3 receiveMoney and return changes
