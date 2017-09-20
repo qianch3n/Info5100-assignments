@@ -61,20 +61,22 @@ public class Assignment2 {
         }
     
         // add more choice depending on different restaurant
-        public Pizza(String type, double price, int point) {
-            pizzaType.add(type);
-            prices.add(price);
-            loyaltyPoints.add(point);
+        public Pizza(ArrayList<String> types, ArrayList<Double> prices, ArrayList<Integer> points) {
+            pizzaType.addAll(types);
+            this.prices.addAll(prices);
+            loyaltyPoints.addAll(points);
         }
     
         
     
         public void showMenu() {
+            System.out.println("=== Menu ===");
             for (int i = 0; i < pizzaType.size(); i++) {
                 System.out.print("Type: " + pizzaType.get(i) + " ");
                 System.out.print("Price: $" + prices.get(i) + " ");
                 System.out.println("Loyalty points: " + loyaltyPoints.get(i));
             }
+            System.out.println("============");
         }
     }
 
@@ -101,11 +103,11 @@ public class Assignment2 {
         }
 
         // In this checkOut method, it will output how much money the customer spent. Please check the example in main method. 
-        public void checkOut() {
+        public void checkOut(Pizza menu) {
             double bill = 0;
             int loyaltyPoints = 0;
-            Pizza menu = new Pizza();
             Set<String> keys = pizzaOrdered.keySet();
+            System.out.println("=== Check Out ===");
             for (String key : keys) {
                 int idx = menu.pizzaType.indexOf(key);
                 bill += menu.prices.get(idx) * pizzaOrdered.get(key);
@@ -124,6 +126,7 @@ public class Assignment2 {
                 System.out.println(name + " gained " + loyaltyPoints + " points this time and have " + pointsGained
                         + " points in total now.");
             }
+            System.out.println("=================");
         }
 
     }
@@ -148,19 +151,25 @@ public class Assignment2 {
     }
 
     public static void main(String[] args) {
-        // Pizza test = new Pizza("Supreme", 8.0, 8);
-        // test.showMenu();
+        
         System.out.println("Q3:");
         Assignment2 question3 = new Assignment2();
         question3.printPerfectNumbers(10000);
 
         System.out.println("Q4 and Q5:");
+        ArrayList<String> pizzaTypes = new ArrayList<>(Arrays.asList("supreme", "chicken"));
+        ArrayList<Double> prices = new ArrayList<>(Arrays.asList(6.0, 7.0));
+        ArrayList<Integer> points = new ArrayList<>(Arrays.asList(6, 7));
+        Pizza menu = new Pizza(pizzaTypes, prices, points);
+        menu.showMenu();
+
         Customer cus1 = new Customer("Ashley", 5, 100.0);
         cus1.orderPizza("cheese", 5);
         cus1.orderPizza("cheese", 3);
         cus1.orderPizza("pepperoni", 1);
         cus1.orderPizza("meat lover", 1);
-        cus1.checkOut();
+        cus1.orderPizza("chicken", 1);
+        cus1.checkOut(menu);
 
         printIsoscelesTriangle(10);
     }
