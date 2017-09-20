@@ -78,6 +78,7 @@ public class Assignment2 {
         }
     }
 
+    // Q5
     static class Customer {
         String name;
         Map<String, Integer> pizzaOrdered = new HashMap<>(); // key is pizza type, value is the number customer would like to order
@@ -127,7 +128,7 @@ public class Assignment2 {
 
     }
 
-    // Q6:
+    // Q6
     public static void printIsoscelesTriangle( int n){
         for(int i = 0; i < n - 1; i++) {
             if(i == 0) System.out.println("*");
