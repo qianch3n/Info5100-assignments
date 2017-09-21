@@ -55,12 +55,15 @@ public class Assignment2 {
         public List<Double> prices = new ArrayList<>(Arrays.asList(5.0, 6.5, 7.0));
         public List<Integer> loyaltyPoints = new ArrayList<>(Arrays.asList(5, 6, 7));
     
-        // when I instantiate class Pizza, I actually instantiate a menu of pizzas. Pizza type - price - loyalty point, they all have the same index number in their own list.
+        /* 
+        When instantiate class Pizza, I actually instantiate a menu of pizzas. Pizza type - price - loyalty point, they all have the same index number in their own list so the three attributes get connected.
+        */
+
         public Pizza() {
-    
+            // default constructor. 
         }
     
-        // add more choice depending on different restaurant
+        // Use this constructor to add more choice depending on different restaurant. 
         public Pizza(ArrayList<String> types, ArrayList<Double> prices, ArrayList<Integer> points) {
             pizzaType.addAll(types);
             this.prices.addAll(prices);
