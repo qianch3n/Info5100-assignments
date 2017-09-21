@@ -56,7 +56,9 @@ public class Assignment2 {
         public List<Integer> loyaltyPoints = new ArrayList<>(Arrays.asList(5, 6, 7));
     
         /* 
-        When instantiate class Pizza, I actually instantiate a menu of pizzas. Pizza type - price - loyalty point, they all have the same index number in their own list so the three attributes get connected.
+        When instantiate class Pizza, I actually instantiate a menu of pizzas. 
+        Pizza type - price - loyalty point, they all have the same index number 
+        in their own list so the three attributes get connected.
         */
 
         public Pizza() {
