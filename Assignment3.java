@@ -127,13 +127,23 @@ public class Assignment3 {
         public double fahrenheitToCelsius(double f) {
             return (f - 32) / 9 * 5;
         }
-        public double feetToInch(double feet) {
+        public double CelsiusToFahrenheit(double c) {
+            return c / 5 * 9 + 32;
+        }
+        public double feetToInches(double feet) {
             return feet * 12;
+        }
+        public double inchesToFeet(double inches) {
+            return inches / 12;
         }
 
         // extra
-        public double[] quadraticEquation(double a, double b, double c) {
+        double[] quadraticEquation(double a, double b, double c) {
             double[] result = new double[2];
+            if(Math.pow(b, 2) - 4 * a * c < 0) {
+                System.out.println("No solution!");
+                return result;
+            }
             double temp = Math.sqrt( Math.pow(b, 2) - 4 * a * c );
             result[0] = (b * -1 + temp) / 2 * a;
             result[1] = (b * -1 - temp) / 2 * a;
@@ -153,7 +163,7 @@ public class Assignment3 {
         // Q5 test
         Calculator cal = new Calculator();
         double cel = cal.fahrenheitToCelsius(73);
-        double[] res = cal.quadraticEquation(1,1,-2);
+        double[] res = cal.quadraticEquation(2,3,-2);
         System.out.println(cal.add(1,9));
         System.out.println(cal.cube(5));
         System.out.println(cel);
