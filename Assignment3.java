@@ -72,8 +72,8 @@ public class Assignment3 {
 
     // Q4
     public static boolean checkIfTwoStringsAreAnagrams(String s1, String s2) {
-        
         Map<Character, Integer> map = new HashMap<>();
+
         for(char c : s1.toCharArray()) {
             if(map.containsKey(c)) {
                 map.put(c, map.get(c) + 1);
@@ -154,11 +154,11 @@ public class Assignment3 {
 
     public static void main(String[] args) {
         // Q3 test
-        String str = "Aheloiby.";
+        String str = "Rubby is nice. Amy is not.";
         System.out.println(removeVowelsFromString(str));
 
         // Q4 test
-        System.out.println(checkIfTwoStringsAreAnagrams("abc", "Bca"));
+        System.out.println(checkIfTwoStringsAreAnagrams("", ""));
 
         // Q5 test
         Calculator cal = new Calculator();
