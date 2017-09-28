@@ -141,8 +141,7 @@ public class Assignment3 {
         double[] quadraticEquation(double a, double b, double c) {
             double[] result = new double[2];
             if(Math.pow(b, 2) - 4 * a * c < 0) {
-                System.out.println("No solution!");
-                return result;
+                return new double[0];
             }
             double temp = Math.sqrt( Math.pow(b, 2) - 4 * a * c );
             result[0] = (b * -1 + temp) / 2 * a;
@@ -163,7 +162,7 @@ public class Assignment3 {
         // Q5 test
         Calculator cal = new Calculator();
         double cel = cal.fahrenheitToCelsius(73);
-        double[] res = cal.quadraticEquation(2,3,-2);
+        double[] res = cal.quadraticEquation(2,3,2);
         System.out.println(cal.add(1,9));
         System.out.println(cal.cube(5));
         System.out.println(cel);
