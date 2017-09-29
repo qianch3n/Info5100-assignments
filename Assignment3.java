@@ -72,6 +72,10 @@ public class Assignment3 {
 
     // Q4
     public static boolean checkIfTwoStringsAreAnagrams(String s1, String s2) {
+        if(s1.length() != s2.length()) {
+            return false;
+        }
+
         Map<Character, Integer> map = new HashMap<>();
 
         for(char c : s1.toCharArray()) {
@@ -157,7 +161,7 @@ public class Assignment3 {
         System.out.println(removeVowelsFromString(str));
 
         // Q4 test
-        System.out.println(checkIfTwoStringsAreAnagrams("", ""));
+        System.out.println(checkIfTwoStringsAreAnagrams("aa", ""));
 
         // Q5 test
         Calculator cal = new Calculator();
