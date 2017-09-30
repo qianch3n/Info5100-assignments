@@ -1,33 +1,38 @@
+/* Good Work
+ * Score 8 + Extra Credit = 3.5. Total Score = 10
+ */
+
 import java.util.*;
 
 public class Assignment2 {
     // Q1
-    public double employeeSalary(double hours) {
+    // score 1
+    public double employeeSalary(double hours) { // for hours =48, expected output is 862.5, your output is 666.5
         double salary = 0;
         if (hours <= 36) {
             salary = hours * 15;
         } else if (hours > 36 && hours <= 41) {
             salary = 36 * 15 + (hours - 36) * 15 * 1.5;
         } else if (hours > 41 && hours <= 48) {
-            salary = 36 * 15 + 5 * 15 * 1.5 + (hours - 41) * 2;
+            salary = 36 * 15 + 5 * 15 * 1.5 + (hours - 41) * 2;  // you missed to multiply by 15*2 for hours > 41 here.
         } else if (hours > 48) {
             salary = 36 * 15 + 5 * 15 * 1.5 + 7 * 2;
         }
         return salary;
     }
 
-    // Q2
-    public int addDigits(int input) {
+    // Q2 score 1
+    public int addDigits(int input) { // for input= 37, expected output= 1, your output = 10;
         int res = 0;
         while (input > 0) {
             res += input % 10;
             input /= 10;
         }
-        return res;
+        return res; // (res<10) ? res : addDigits(res);
     }
 
-    // Q3
-    public void printPerfectNumbers(int n) {
+    // Q3 Score 2
+    public void printPerfectNumbers(int n) { // goodwork
         for (int i = 6; i <= n; i++) {
             if (isPerfectNumber(i)) {
                 System.out.println(i);
@@ -39,7 +44,7 @@ public class Assignment2 {
         if (n == 1)
             return false;
         int sum = 1;
-        for (int i = 2; i < Math.sqrt(n); i++) {
+        for (int i = 2; i < Math.sqrt(n); i++) { // i<= Math.sqrt(n)
             if (n % i != 0)
                 continue;
             sum += i;
@@ -50,6 +55,10 @@ public class Assignment2 {
     }
 
     // Q4
+    /* score 2 + extra credit 0.5
+     * while this code works, pizza should not contain a list of pizzas/prices/loyality points. it should only contain
+     * a single type, price and loyality points. you have to create a pizzaMenu class to contain the following.
+     */
     static class Pizza {
         public List<String> pizzaType = new ArrayList<>(Arrays.asList("cheese", "pepperoni", "meat lover"));
         public List<Double> prices = new ArrayList<>(Arrays.asList(5.0, 6.5, 7.0));
@@ -86,6 +95,7 @@ public class Assignment2 {
     }
 
     // Q5
+    // score 2 + extra credit 1
     static class Customer {
         String name;
         Map<String, Integer> pizzaOrdered = new HashMap<>(); // key is pizza type, value is the number customer would like to order
@@ -137,6 +147,7 @@ public class Assignment2 {
     }
 
     // Q6
+    //Extra credit 2
     public static void printIsoscelesTriangle( int n){
         for(int i = 0; i < n - 1; i++) {
             if(i == 0) System.out.println("*");
@@ -151,7 +162,7 @@ public class Assignment2 {
         for(int i = 0; i < n; i ++) {
             System.out.print("*");
         }
-        System.out.println(" ");
+        System.out.println(" "); // this line is not required
 
     }
 
