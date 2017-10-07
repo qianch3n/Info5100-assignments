@@ -119,6 +119,9 @@ public class Assignment4 {
         }
 
         int getOctet(int idx) {
+            if (idx > 4 || idx < 1) {
+                throw new IllegalArgumentException("Input should be between 1 ~ 4");
+            }
             int i = idx - 1;
             return octets[i];
         }
