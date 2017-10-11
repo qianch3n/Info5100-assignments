@@ -111,27 +111,38 @@ class Hangman {
    
     // Starts the game.
     public void playGame() {
-        System.out.println("Welcome to HangMan Game!");
         chooseWord();
-        while ( wrongList.size() < 9 && !gameWon()) {
+        String guess = "";
+        while ( true ) {
+            // clean the console
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
             System.out.println("======== Round " + round + " ========");
-            String guess = "";
-            printHangman();
+            if (!guess.equals("")) {
+                if (handleGuess(guess)) {
+                    System.out.println("Your last guess is "+ guess + ", which is correct!");
+                } else {
+                    System.out.println("Your last guess is "+ guess + ", which is wrong!");
+                }
+                System.out.println("Remaining chances: " + (8 - wrongList.size()));
+            } else {
+                System.out.println("Welcome to HangMan Game!");
+            }
             System.out.print("Word on guessing: ");
             displayWord();
+            printHangman();
+
+            if ( wrongList.size() == 8 || gameWon() ) {
+                break;
+            }
             
             System.out.print("Please input your guess.");
             guess = takeGuess();
             round++;
-            
-            if (handleGuess(guess)) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println("Wrong!");
-            }
-            System.out.println("\n\n\n");
-
         }
+
+
         if (gameWon()) {
             System.out.println("Congratulation! You win!");
         } else {
