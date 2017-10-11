@@ -1,7 +1,13 @@
+/* Good Work
+ * Score 10
+ */
+
+
 import java.util.*;
 
 public class Assignment3 {
     // Q1
+    // score 1
     class Book {
         int size;
         int price;
@@ -31,6 +37,7 @@ public class Assignment3 {
     }
 
     // Q2
+    // score 1
     class Clock {
         String time;
 
@@ -46,6 +53,7 @@ public class Assignment3 {
     }
 
     // Q3
+    // score 2
     public static String removeVowelsFromString(String input) {
         List<Character> str = new ArrayList<>();
         for (char c : input.toCharArray()) {
@@ -55,8 +63,8 @@ public class Assignment3 {
         }
         String res = "";
         for (Character c : str) {
-            res += c.toString();
-        }
+            res += c.toString();    // you are using string concatenation in loop. Remember strings are immutable.
+        }                           // by using this way you are creating new object every time. Try using StringBuilder.
         return res;
     }
 
@@ -71,6 +79,7 @@ public class Assignment3 {
     }
 
     // Q4
+    // score 2
     public static boolean checkIfTwoStringsAreAnagrams(String s1, String s2) {
         if(s1.length() != s2.length()) {
             return false;
@@ -103,6 +112,7 @@ public class Assignment3 {
     // Q5
     static class Calculator {
         // i.
+        // score 2
         public double add(double a, double b) {
             return a + b;
         }
@@ -117,6 +127,7 @@ public class Assignment3 {
         }
 
         // ii.
+        // score 1
         public double square(double a) {
             return Math.pow(a, 2);
         }
@@ -128,6 +139,7 @@ public class Assignment3 {
         }
 
         // iii.
+        // score 1
         public double fahrenheitToCelsius(double f) {
             return (f - 32) / 9 * 5;
         }
@@ -142,6 +154,7 @@ public class Assignment3 {
         }
 
         // extra
+        // extra credit 2
         double[] quadraticEquation(double a, double b, double c) {
             double[] result = new double[2];
             if(Math.pow(b, 2) - 4 * a * c < 0) {
