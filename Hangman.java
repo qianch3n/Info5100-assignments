@@ -114,7 +114,10 @@ class Hangman {
         chooseWord();
         String guess = "";
         while ( true ) {
-            // clean the console
+            // NOTE: these two line clean the console. This works on
+            //  almost all UNIX terminals and terminal emulators. The
+            //   Windows cmd.exe does not interprete ANSI escape codes.
+            // So please run this program in bash if you use Windows.
             System.out.print("\033[H\033[2J");
             System.out.flush();
 
