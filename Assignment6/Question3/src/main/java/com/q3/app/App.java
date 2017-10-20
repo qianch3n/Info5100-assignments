@@ -4,7 +4,7 @@ package com.q3.app;
 //
 //Please note: I use Maven under intelliJ to build this project as I need to use the
 //jackson dependency to write json file. So please test run the App in intelliJ. All
-//the user data would be stored in file called user_data.json. Sorry for the inconvenience.
+//the user data would be stored in file named user_data.json. Sorry for the inconvenience.
 
 
 
