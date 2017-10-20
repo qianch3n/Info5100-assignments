@@ -1,8 +1,11 @@
+/* Awesome work
+ * score 10 + extra credit 2; Total score 10
+ */
 import java.util.*;
 
 public class Assignment4 {
     // Q1
-    public static String formatString(String str, int k) {
+    public static String formatString(String str, int k) { // good, score 2
         StringBuilder res = new StringBuilder();
         for (int i = str.length() - 1; i >= 0; i--) {
             if (str.charAt(i) != '-') {
@@ -13,7 +16,7 @@ public class Assignment4 {
     }
 
     // Q2
-    static class Tool {
+    static class Tool { // score 2
         protected int strength;
         protected char type;
 
@@ -102,7 +105,7 @@ public class Assignment4 {
     }
 
     // Q3
-    static class IpAddress {
+    static class IpAddress { // score 2
         private int[] octets = new int[4];
         String ipAddress;
 
@@ -129,13 +132,13 @@ public class Assignment4 {
     }
 
     // Q4
-    static class Student {
-        String name;
+    static class Student { // score 2
+        String name; // should be private and accessed using getters
         String id;
         Student(String name, String id) {
             this.name = name;
             this.id = id;
-        }
+        } // getters are not defined 
     }
 
     static class Course {
@@ -175,7 +178,7 @@ public class Assignment4 {
     }
 
     // Q5
-    private static final String[] SYMBOLS = {
+    private static final String[] SYMBOLS = { // score 2
         "M", "CM", "D", "CD", 
         "C", "XC", "L", "XL", 
         "X", "IX", "V", "IV", 
@@ -205,7 +208,7 @@ public class Assignment4 {
     }
 
     // Extra
-    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) { // extra credit 2
         int len1 = nums1.length, len2 = nums2.length;
         if(len1 == 0 && len2 == 0) return 0;
         int i = 0, j = 0, m = 0;
