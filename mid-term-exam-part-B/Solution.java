@@ -101,8 +101,17 @@ public class Solution {
             return "[" + this.x + ", " + this.y + "]";
         }
     }
-
-    public ArrayList<Cell> findPath(int[][] maze) { // extra credit 10
+    /*
+        for input = { {1,0,0,1,0},
+                      {1,1,1,1,1},
+                      {1,0,0,1,0},
+                      {1,1,0,1,1}};
+                      
+         expected output: [[0, 0], [1, 0], [1, 1], [1, 2], [1, 3], [2, 3], [3, 3], [3, 4]]
+         your output    : [[0, 0], [1, 0], [2, 0], [3, 0], [3, 1], [1, 1], [1, 2], [1, 3], [2, 3], [3, 3], [3, 4]]
+     */
+    
+    public ArrayList<Cell> findPath(int[][] maze) { // extra credit 5
         ArrayList<Cell> res = new ArrayList<>();
         ArrayList<Cell> allPaths = new ArrayList<>();
         findPath(maze, res, allPaths, 0, 0);
