@@ -1,8 +1,12 @@
+/* good work
+ * Score 30 + extra credit 10;
+ */
+
 import java.util.*;
 
 public class Solution {
     // Q1
-    public int[] reverseEvenIndices(int[] nums) {
+    public int[] reverseEvenIndices(int[] nums) { // score 6
         if (nums.length == 0)
             return nums;
         int i = 0;
@@ -25,7 +29,7 @@ public class Solution {
     }
 
     // Q2
-    public int arrangeCoins(int n) {
+    public int arrangeCoins(int n) { // score 7
         int start = 0;
         int end = n;
         while (start <= end) {
@@ -40,7 +44,7 @@ public class Solution {
     }
 
     // Q3
-    public int minMoves(int[] nums) {
+    public int minMoves(int[] nums) { // score 7
         if (nums.length == 0)
             return 0;
         int sum = 0;
@@ -53,7 +57,7 @@ public class Solution {
     }
 
     // Q4
-    public int countNumberOfPossibleWays(int m, int n, int x) {
+    public int countNumberOfPossibleWays(int m, int n, int x) { // score 10
         int[] res = new int[n];
         List<int[]> list = new ArrayList<>();
         countNumberOfPossibleWays(m, x, 0, res, list);
@@ -97,8 +101,18 @@ public class Solution {
             return "[" + this.x + ", " + this.y + "]";
         }
     }
-
-    public ArrayList<Cell> findPath(int[][] maze) {
+    /*
+        for input = { {1,0,0,1,0},
+                      {1,1,1,1,1},
+                      {1,0,0,1,0},
+                      {1,1,0,1,1},
+                      {0,0,0,0,1}};
+                      
+         expected output: [[0, 0], [1, 0], [1, 1], [1, 2], [1, 3], [2, 3], [3, 3], [3, 4]],[4,4]
+         your output    : [[0, 0], [1, 0], [2, 0], [3, 0], [3, 1], [1, 1], [1, 2], [1, 3], [2, 3], [3, 3], [3, 4], [4, 4]]
+     */
+    
+    public ArrayList<Cell> findPath(int[][] maze) { // extra credit 5
         ArrayList<Cell> res = new ArrayList<>();
         ArrayList<Cell> allPaths = new ArrayList<>();
         findPath(maze, res, allPaths, 0, 0);
