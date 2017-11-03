@@ -49,6 +49,7 @@ public class Game {
         int lowestClub = 20;
         int playNum = -1;
         for (int i = 0; i < PLAYERS; i++) {
+            System.out.println();
             System.out.println("Player " + i + " shortest = " + players[i].getShortest());
             for (int j = 0; j <players[i].getCurrentSize(); j++) {
                 Card card = players[i].getCard(j);
