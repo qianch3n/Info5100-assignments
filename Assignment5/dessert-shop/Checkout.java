@@ -37,7 +37,7 @@ public class Checkout {
             String name = "";
             if ( item instanceof Candy) {
                 Candy c = (Candy) item;
-                receipt += c.getWeight() + " lbs. @ " + c.getPrice() + " /lb.\n";
+                receipt += c.getWeight() + " lbs. @ " + c.getPrice() + " /lb.\n"; // use stringBuilder rather than string cocatination
             } else if ( item instanceof Cookie) {
                 Cookie c = (Cookie) item;
                 receipt += c.getNumber() + " @ " + c.getPrice() + " /dz.\n";
