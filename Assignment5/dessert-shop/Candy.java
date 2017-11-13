@@ -1,6 +1,6 @@
 public class Candy extends DessertItem {
-    double weight;
-    int price;
+    double weight; // variables access should be private
+    int price; 
 
     public Candy(String name, double weight, int price) {
         super(name);
