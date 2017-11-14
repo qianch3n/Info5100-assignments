@@ -1,7 +1,8 @@
+// score 9+ extra credit 2; total score 10
 import java.util.*;
 
 class Extra {
-    public static List<Integer> spiralOrder(int[][] matrix) {
+    public static List<Integer> spiralOrder(int[][] matrix) {// extra credit 2
         List<Integer> res = new ArrayList<>();
         int c = matrix[0].length;
         int r = matrix.length;
