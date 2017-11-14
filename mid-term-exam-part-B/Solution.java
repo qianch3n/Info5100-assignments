@@ -133,14 +133,17 @@ public class Solution {
             return;
         } else {
             allPaths.add(new Cell(r, c));
+            ArrayList<Cell> goingDown = new ArrayList<>(allPaths);
+            ArrayList<Cell> goingRight = new ArrayList<>(allPaths);
+
             if (r == rows - 1) {
-                findPath(maze, res, allPaths, r, c + 1);
+                findPath(maze, res, goingRight, r, c + 1);
 
             } else if (c == cols - 1) {
-                findPath(maze, res, allPaths, r + 1, c);
+                findPath(maze, res, goingDown, r + 1, c);
             } else {
-                findPath(maze, res, allPaths, r + 1, c);
-                findPath(maze, res, allPaths, r, c + 1);
+                findPath(maze, res, goingDown, r + 1, c);
+                findPath(maze, res, goingRight, r, c + 1);
             }
 
         }
@@ -164,10 +167,11 @@ public class Solution {
 
         // Q5
         int[][] maze = { 
-            { 1, 0, 0, 0 }, 
-            { 1, 1, 1, 1 }, 
-            { 0, 1, 0, 0 }, 
-            { 1, 1, 1, 1 } 
+            {1,0,0,1,0},
+            {1,1,1,1,1},
+            {1,0,0,1,0},
+            {1,1,0,1,1},
+            {0,0,0,0,1}
         };
         ArrayList<Cell> res = test.findPath(maze);
         for (Cell c : res) {
