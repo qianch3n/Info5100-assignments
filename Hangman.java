@@ -1,7 +1,10 @@
+/* Good Work
+ * Score 18
+ */
 import java.util.*;
 
 class Hangman {
-    ArrayList<String> words; 
+    ArrayList<String> words;  // access should be private
     String wordToGuess;
     boolean[] guessStatus;
     ArrayList<String> correctList;
@@ -40,7 +43,8 @@ class Hangman {
     }    
 
     // handle the guess and add the letter to correctList or WrongList.
-    public boolean handleGuess(String guess) {
+    public boolean handleGuess(String guess) {// not handling the guess where word has multiple guessed letters. 
+        // eg: Word = Tall, guess is l, you have to reveal all the occurences of l
         for (int i = 0; i < wordToGuess.length(); i++ ) {
             String cur = Character.toString(wordToGuess.charAt(i));
             if (guess.equals(cur) && !guessStatus[i]) {
@@ -123,7 +127,7 @@ class Hangman {
 
             System.out.println("======== Round " + round + " ========");
             if (!guess.equals("")) {
-                if (handleGuess(guess)) {
+                if (handleGuess(guess)) { // you have print all the previously guessed letters. you are printing only one
                     System.out.println("Your last guess is "+ guess + ", which is correct!");
                 } else {
                     System.out.println("Your last guess is "+ guess + ", which is wrong!");
