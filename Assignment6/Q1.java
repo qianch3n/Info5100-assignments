@@ -1,3 +1,7 @@
+/* 
+Score 1.9
+you are extending from exception which is a broad scope. you have to extend from IndexOutOfBounds() or RuntimeException()
+*/
 public class Q1 {
 
     int[] arr;
