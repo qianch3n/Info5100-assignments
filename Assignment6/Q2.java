@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Q2 {
+public class Q2 { // score 2
 
     public static void parse(File file) {
         RandomAccessFile input = null;
