@@ -1,4 +1,4 @@
-public class ReverseHello extends Thread {
+public class ReverseHello extends Thread { // score 2, Try theard.join
     private int index;
     Object monitor;
 
