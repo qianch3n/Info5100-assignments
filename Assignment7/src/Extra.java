@@ -1,7 +1,10 @@
+/* GOod work
+ * Score 9.5 + extra credit 2; Total score 10
+ */
 import java.util.Arrays;
 
 public class Extra {
-    public static boolean findPartition (int arr[]) {
+    public static boolean findPartition (int arr[]) { // extra credit 2
         int sum = 0;
 
         for (int num : arr) {
