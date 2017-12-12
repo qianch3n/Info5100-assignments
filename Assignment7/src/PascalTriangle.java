@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PascalTriangle {
+public class PascalTriangle { // score 2
     public void printPascalTriangle(int n) {
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
