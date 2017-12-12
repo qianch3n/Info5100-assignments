@@ -1,4 +1,4 @@
-public class Root {
+public class Root { // score 2, keep the variables private and synchronizing object as final.
     public static void main(String[] args) {
 
         Device device = new Device();
