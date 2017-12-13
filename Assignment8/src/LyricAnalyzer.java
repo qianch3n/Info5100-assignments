@@ -2,7 +2,7 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class LyricAnalyzer {
+public class LyricAnalyzer { // score 4
     private HashMap<String, ArrayList<Integer>> map = new HashMap<>();
     private int totalCount;
 
