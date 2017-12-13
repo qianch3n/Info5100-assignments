@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-public class FileAnalyzer
+public class FileAnalyzer // score 3
 {
     public static void main(String[] args) throws IOException
     {
