@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MyJson {
+public class MyJson { // score 3
 
     private static ArrayList<Vehicle> readAndGetVehicles(File file) throws FileNotFoundException {
         ArrayList<Vehicle> ret = new ArrayList<>();
